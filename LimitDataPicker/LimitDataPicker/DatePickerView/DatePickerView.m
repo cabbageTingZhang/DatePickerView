@@ -206,7 +206,7 @@
 //最终所有返回的信息都在此方法里
 - (void)endChoiceReturenText
 {
-    if ([[_amPmArray objectAtIndex:[self.customPicker selectedRowInComponent:1]] isEqualToString:@"不确定"])
+    if ([[_amPmArray objectAtIndex:[self.customPicker selectedRowInComponent:2]] isEqualToString:@"不确定"])
     {
         self.datePickerText = [NSString stringWithFormat:@"%@",[_monthAndDayArray objectAtIndex:[self.customPicker selectedRowInComponent:0]]];
         _endChoiceMonthAndDay =[NSString stringWithFormat:@"%@",[_monthAndDayArray objectAtIndex:[self.customPicker selectedRowInComponent:0]]];
@@ -228,9 +228,9 @@
     }
     else
     {
-        self.datePickerText = [NSString stringWithFormat:@"%@%@",[_monthAndDayArray objectAtIndex:[self.customPicker selectedRowInComponent:0]],[_amPmArray objectAtIndex:[self.customPicker selectedRowInComponent:1]]];
+        self.datePickerText = [NSString stringWithFormat:@"%@%@",[_monthAndDayArray objectAtIndex:[self.customPicker selectedRowInComponent:0]],[_amPmArray objectAtIndex:[self.customPicker selectedRowInComponent:2]]];
         _endChoiceMonthAndDay =[NSString stringWithFormat:@"%@",[_monthAndDayArray objectAtIndex:[self.customPicker selectedRowInComponent:0]]];
-        NSString *ampmStr = [_amPmArray objectAtIndex:[self.customPicker selectedRowInComponent:1]];
+        NSString *ampmStr = [_amPmArray objectAtIndex:[self.customPicker selectedRowInComponent:2]];
         int i = 0;
         for (i = 0; i <= 4; i ++)
         {

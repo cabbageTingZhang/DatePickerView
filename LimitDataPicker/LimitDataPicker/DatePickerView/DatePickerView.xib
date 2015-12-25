@@ -34,7 +34,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
-                        <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ND2-kd-Rqy" customClass="OnePixelHorizontalView">
+                        <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ND2-kd-Rqy">
                             <rect key="frame" x="0.0" y="44" width="320" height="1"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -66,7 +66,6 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="ND2-kd-Rqy" secondAttribute="trailing" id="5Yd-oe-p0R"/>
                         <constraint firstItem="ND2-kd-Rqy" firstAttribute="leading" secondItem="bcV-PN-xBC" secondAttribute="leading" id="Dea-Ck-aFl"/>
-                        <constraint firstItem="AWZ-fg-WFX" firstAttribute="top" secondItem="Gis-x0-jQ4" secondAttribute="top" id="EP7-wU-zKA"/>
                         <constraint firstAttribute="trailing" secondItem="m0h-FA-fTm" secondAttribute="trailing" id="Erl-fY-A0x"/>
                         <constraint firstItem="d51-SG-B9I" firstAttribute="top" secondItem="bcV-PN-xBC" secondAttribute="top" constant="8" id="NQD-4X-5dL"/>
                         <constraint firstAttribute="bottom" secondItem="ND2-kd-Rqy" secondAttribute="bottom" constant="161" id="PfC-iD-RNq"/>
@@ -75,9 +74,9 @@
                         <constraint firstItem="Gis-x0-jQ4" firstAttribute="top" secondItem="bcV-PN-xBC" secondAttribute="top" constant="8" id="bA9-ha-lw1"/>
                         <constraint firstAttribute="height" constant="206" id="cFQ-Uu-PKh"/>
                         <constraint firstAttribute="bottom" secondItem="m0h-FA-fTm" secondAttribute="bottom" id="ffL-Ue-5st"/>
-                        <constraint firstItem="d51-SG-B9I" firstAttribute="leading" secondItem="AWZ-fg-WFX" secondAttribute="trailing" constant="76" id="kJS-rI-7SN"/>
+                        <constraint firstItem="AWZ-fg-WFX" firstAttribute="top" secondItem="bcV-PN-xBC" secondAttribute="top" constant="8" id="grN-tu-l4s"/>
                         <constraint firstItem="Gis-x0-jQ4" firstAttribute="leading" secondItem="bcV-PN-xBC" secondAttribute="leading" constant="8" id="m1h-GG-gEi"/>
-                        <constraint firstItem="AWZ-fg-WFX" firstAttribute="leading" secondItem="Gis-x0-jQ4" secondAttribute="trailing" constant="76" id="wtr-Bj-VDh"/>
+                        <constraint firstItem="AWZ-fg-WFX" firstAttribute="centerX" secondItem="bcV-PN-xBC" secondAttribute="centerX" id="x45-xr-Utu"/>
                     </constraints>
                 </view>
             </subviews>

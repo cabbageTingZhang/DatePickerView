@@ -5,6 +5,7 @@
 //  Created by mac-mini-ios on 15/7/23.
 //  Copyright (c) 2015年 xtuone. All rights reserved.
 //
+#define LimitDay 59
 
 #import "DatePickerView.h"
 #import "UIColor+K1Util.h"
@@ -184,7 +185,7 @@
     }
     //获取需要的小的年月日数组
     _smallYMDArr = [NSMutableArray array];
-    for (int i = x - 59; i <= x; i ++)
+    for (int i = x - LimitDay; i <= x; i ++)
     {
         NSString *ymdStr = _yearAndMonthAndDayArr[i];
         NSArray *array = [ymdStr componentsSeparatedByString:@"年"];
@@ -281,13 +282,18 @@
         [pickerLabel setFont:[UIFont systemFontOfSize:18.0f]];
         [pickerLabel setBackgroundColor:[UIColor colorWithHexString:@"#00000000"]];
     }
-    if (component == 0)
+    if (component == 0)//第一行
     {
         pickerLabel.text = [_monthAndDayArray objectAtIndex:row];
     }
-    else
+    else if (component == 2)//第三行
     {
         pickerLabel.text = [_amPmArray objectAtIndex:row];
+    }
+    else//第二行
+    {
+        pickerLabel.text = @"";
+        pickerLabel.frame = CGRectMake(0.0, 0.0, 30.0, 44.0);
     }
     return pickerLabel;
 }
@@ -301,20 +307,36 @@
 //返回多少列
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 2;
+    return 3;//此处写三行,才能让picker上下滑动的字没有那么参差
 }
 
 // returns the # of rows in each component..
 //每列有多少行
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    if (component == 0)
+    if (component == 0)//第一行
     {
-        return 60;//为实现循环而设定,可以调的更大
+        return LimitDay + 1;//为实现循环而设定,可以调的更大
+    }
+    else if(component == 1)//第二行,特殊处理
+    {
+        return 0;
+    }
+    else//第三行
+    {
+        return 5;
+    }
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
+{
+    if (component == 1 )
+    {
+        return 5;//第二行的存在意义完全是为了调节另两行显示
     }
     else
     {
-        return 5;
+        return 110;
     }
 }
 @end

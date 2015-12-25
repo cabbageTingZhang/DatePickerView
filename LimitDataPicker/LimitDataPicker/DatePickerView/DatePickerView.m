@@ -293,7 +293,7 @@
     else//第二行
     {
         pickerLabel.text = @"";
-        pickerLabel.frame = CGRectMake(0.0, 0.0, 30.0, 44.0);
+        pickerLabel.frame = CGRectMake(0.0, 0.0, 5.0, 44.0);
     }
     return pickerLabel;
 }
@@ -332,7 +332,7 @@
 {
     if (component == 1 )
     {
-        return 5;//第二行的存在意义完全是为了调节另两行显示
+        return 0;//第二行的存在意义完全是为了调节另两行显示
     }
     else
     {

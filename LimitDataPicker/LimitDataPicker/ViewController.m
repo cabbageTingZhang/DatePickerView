@@ -24,6 +24,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.btn.layer.cornerRadius = 5.0;
+    self.btn.layer.masksToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning

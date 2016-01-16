@@ -1,4 +1,4 @@
-![image](git@github.com:cabbageTingZhang/DatePickerView.git/DatePickerView/12.gif)
+![image](https://github.com/cabbageTingZhang/DatePickerView.git/DatePickerView/12.gif)
 
 # DatePickerView
 ================

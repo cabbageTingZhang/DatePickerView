@@ -60,7 +60,7 @@
     NSDate *inputDate = [inputFormatter dateFromString:newTimeStr];
     NSString *timeString = [NSString stringWithFormat:@"%ld", (long)[inputDate timeIntervalSince1970]];
     
-    return ([timeString doubleValue] * 1000);
+    return ([timeString doubleValue] * 1000);//返回当前选择的日期天数,再加上当前时间的时间戳
 }
 
 #pragma mark - view cycle
@@ -107,6 +107,7 @@
     _monthAndDayArray = [NSMutableArray array];
     _yearAndMonthAndDayArr = [NSMutableArray array];
     
+    //判断的目的 判断当前年份是否变换 如果从一年进入了另一年 数据源需要重新生成 生成条件 就是根据以下判断的
     //判断是不是第一次(通过判断DatePicker.plist文件是否存在),如果是第一次创建文件,并将_monthAndDayArray数组存入plist文件中,如果不是第一次直接从文件中读取数据不用再次创建
     NSFileManager *fileManage = [NSFileManager defaultManager];
     [fileManage createDirectoryAtPath:[self createPath] withIntermediateDirectories:YES attributes:nil error:nil];
@@ -118,7 +119,7 @@
         [yearArr writeToFile:yearFilePath atomically:YES];
     }
     NSString *oldYear = [[NSArray alloc] initWithContentsOfFile:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/DatePicker/Year.plist"]][0];
-    //通过判断文件夹下是否有DatePicker.plist文件 以及 当前年份过存储的oldYear的值去确定是否需要重写年月日数组
+    //通过判断文件夹下是否有DatePicker.plist文件 以及 当前年份与存储的oldYear的值比较 然后确定是否需要重写年月日数组 如果不需要重新数组 就是说数据源不用切换 则直接从plist文件读取数据源 否则第一次运行 以及年份变换时 都需要重新生成数据源
     if (![fileManage fileExistsAtPath:[[self createPath] stringByAppendingPathComponent:@"DatePicker.plist"]] || ![currentyearString isEqualToString:oldYear])
     {
         if ([fileManage fileExistsAtPath:[[self createPath] stringByAppendingPathComponent:@"DatePicker.plist"]])
@@ -316,7 +317,7 @@
 {
     if (component == 0)//第一行
     {
-        return LimitDay + 1;//为实现循环而设定,可以调的更大
+        return LimitDay + 1;
     }
     else if(component == 1)//第二行,特殊处理
     {

@@ -37,9 +37,9 @@
 //DatePicker的存储路径
 - (NSString *)createPath
 {
-    //    获得documents的目录
+    //获得documents的目录
     NSString *documentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-    //   拼接一个新的路径
+    //拼接一个新的路径
     NSString *newPath = [documentsPath stringByAppendingPathComponent:@"DatePicker"];
     return newPath;
 }

@@ -65,6 +65,8 @@
 - (void)DoneChoose
 {
     self.txt_date.text = _datePickerView.datePickerText;
+    NSLog(@"最终获取到的时间戳(这个时间戳和安卓的一样是13位的,具体可看datePickerView属性解释)--%f",_datePickerView.endSendNumber);
+    NSLog(@"最终获取到的时间区间--%@",_datePickerView.endSendAmpm);
     [self CancelAction];
 }
 
